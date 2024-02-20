@@ -1,5 +1,1 @@
-<<<<<<< HEAD
 files
-=======
-files
->>>>>>> test
