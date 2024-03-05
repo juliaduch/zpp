@@ -4,4 +4,5 @@
 def mnozenie(l1: int, n: int):
     return l1*n
 
+
 print(mnozenie(4, 6))
