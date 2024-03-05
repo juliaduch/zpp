@@ -1,6 +1,7 @@
 import requests
 import argparse
 
+
 class Brewery:
     def __init__(self, data):
         self.id = data.get('id')
@@ -15,7 +16,12 @@ class Brewery:
         self.website_url = data.get('website_url')
 
     def __str__(self):
-        return f"ID: {self.id}\nName: {self.name}\nType: {self.brewery_type}\nAddress: {self.street}, {self.city}, {self.state} {self.postal_code}\nCountry: {self.country}\nPhone: {self.phone}\nWebsite: {self.website_url}\n"
+        return f"ID: {self.id}\nName: {self.name}\n" \
+               f"Type: {self.brewery_type}\n" \
+               f"Address: {self.street}, {self.city}," \
+               f" {self.state} {self.postal_code}\n" \
+               f"Country: {self.country}\nPhone: {self.phone}\n" \
+               f"Website: {self.website_url}\n"
 
 
 def get_breweries():
@@ -24,6 +30,7 @@ def get_breweries():
     data = response.json()
     return [Brewery(brewery_data) for brewery_data in data[:20]]
 
+
 def print_breweries():
     brews = get_breweries()
     for object in brews:
@@ -31,8 +38,10 @@ def print_breweries():
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Informacje o breweries")
-    parser.add_argument("--city", default='Cincinnati', help="Filtrowanie breweries po miastach")
+    parser = argparse.ArgumentParser(
+        description="Informacje o breweries")
+    parser.add_argument("--city", default='Cincinnati',
+                        help="Filtrowanie breweries po miastach")
     args = parser.parse_args()
 
     city_filter = args.city
@@ -45,5 +54,6 @@ def main():
             print(brewery)
     else:
         print("Brak wyników dla podanego miasta.")
+
 
 print_breweries()

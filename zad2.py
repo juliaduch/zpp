@@ -1,5 +1,6 @@
 from zad1 import Student
 
+
 class Library:
     def __init__(self, city, street, zip_code, open_hours, phone):
         self.city = city
@@ -11,6 +12,7 @@ class Library:
     def __str__(self):
         return f'Library in  {self.city},{self.street} {self.zip_code}, ' \
                f'open on {self.open_hours}, phone number {self.phone}'
+
 
 class Employee:
     def __init__(self, first_name, last_name, hire_date, birth_date,
